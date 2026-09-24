@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    background: #17243d;
+}
+
+.scene {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(
+        to bottom,
+        #182642 0%,
+        #526889 65%,
+        #263d25 65%,
+        #172717 100%
+    );
+}
+
+/* =========================
+   ΑΝΤΡΑΣ
+========================= */
+
+.man {
+    position: absolute;
+    left: 38%;
+    bottom: 12%;
+    width: 100px;
+    height: 280px;
+
+    transform: scale(0.25);
+    transform-origin: bottom center;
+
+    animation: walkToGirl 6s ease-in-out forwards;
+
+    z-index: 5;
+}
+
+/* ΚΕΦΑΛΙ - ΦΑΛΑΚΡΟΣ */
+
+.man-head {
+    position: absolute;
+    left: 22px;
+    top: 0;
+
+    width: 58px;
+    height: 64px;
+
+    border-radius: 50%;
+    background: #c98b65;
+
+    box-shadow:
+        inset -5px -3px rgba(0,0,0,.08);
+}
+
+/* αυτιά */
+
+.man-head::before,
+.man-head::after {
+    content: "";
+
+    position: absolute;
+    top: 24px;
+
+    width: 12px;
+    height: 18px;
+
+    border-radius: 50%;
+    background: #bd805c;
+}
+
+.man-head::before {
+    left: -7px;
+}
+
+.man-head::after {
+    right: -7px;
+}
+
+/* μάτια */
+
+.man-eyes {
+    position: absolute;
+    left: 17px;
+    top: 28px;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+    background: #222;
+
+    box-shadow: 20px 0 #222;
+}
+
+/* λαιμός */
+
+.man-neck {
+    position: absolute;
+    left: 39px;
+    top: 56px;
+
+    width: 24px;
+    height: 25px;
+
+    background: #bd805c;
+}
+
+/* ΜΑΥΡΟ ΦΟΥΤΕΡ */
+
+.man-body {
+    position: absolute;
+    left: 12px;
+    top: 72px;
+
+    width: 76px;
+    height: 105px;
+
+    background: #111;
+
+    border-radius: 20px 20px 10px 10px;
+}
+
+/* κουκούλα */
+
+.man-hood {
+    position: absolute;
+    left: 18px;
+    top: 63px;
+
+    width: 64px;
+    height: 38px;
+
+    border: 8px solid #090909;
+    border-radius: 50%;
+}
+
+/* ΧΕΡΙΑ */
+
+.man-arm {
+    position: absolute;
+    top: 78px;
+
+    width: 19px;
+    height: 92px;
+
+    border-radius: 15px;
+
+    background: #111;
+
+    transform-origin: top center;
+}
+
+.man-arm-left {
+    left: 0;
+    transform: rotate(12deg);
+}
+
+.man-arm-right {
+    right: 0;
+
+    transform: rotate(-15deg);
+
+    animation:
+        giveFlowers 1.3s ease-in-out 5.5s forwards;
+}
+
+/* χέρια */
+
+.man-hand {
+    position: absolute;
+
+    left: -2px;
+    bottom: -9px;
+
+    width: 22px;
+    height: 23px;
+
+    border-radius: 50%;
+
+    background: #c98b65;
+}
+
+/* ΠΟΔΙΑ */
+
+.man-leg {
+    position: absolute;
+    top: 170px;
+
+    width: 25px;
+    height: 105px;
+
+    background: #151515;
+
+    border-radius: 10px;
+
+    transform-origin: top center;
+}
+
+.man-leg-left {
+    left: 20px;
+    animation: legLeft .45s infinite alternate;
+}
+
+.man-leg-right {
+    right: 20px;
+    animation: legRight .45s infinite alternate;
+}
+
+@keyframes legLeft {
+    from { transform: rotate(25deg); }
+    to   { transform: rotate(-25deg); }
+}
+
+@keyframes legRight {
+    from { transform: rotate(-25deg); }
+    to   { transform: rotate(25deg); }
+}
+
+/* =========================
+   ΔΥΟ ΗΛΙΟΤΡΟΠΙΑ
+========================= */
+
+.flowers {
+    position: absolute;
+
+    right: -70px;
+    top: 105px;
+
+    width: 100px;
+    height: 130px;
+
+    opacity: 0;
+
+    transform: scale(.4);
+
+    animation:
+        flowersAppear 1s ease 5.2s forwards,
+        flowersMove 1.3s ease-in-out 6.2s forwards;
+}
+
+.flower {
+    position: absolute;
+
+    width: 55px;
+    height: 125px;
+}
+
+.flower:nth-child(2) {
+    left: 35px;
+    top: 10px;
+    transform: rotate(8deg);
+}
+
+/* βλαστός */
+
+.stem {
+    position: absolute;
+
+    left: 24px;
+    top: 35px;
+
+    width: 6px;
+    height: 90px;
+
+    background: #398344;
+
+    border-radius: 5px;
+}
+
+/* φύλλο */
+
+.leaf {
+    position: absolute;
+
+    left: 0;
+    top: 75px;
+
+    width: 30px;
+    height: 15px;
+
+    background: #4d9b4e;
+
+    border-radius: 100% 0;
+
+    transform: rotate(-20deg);
+}
+
+/* ηλιοτρόπιο */
+
+.sun {
+    position: absolute;
+
+    left: 3px;
+    top: 0;
+
+    width: 48px;
+    height: 48px;
+}
+
+/* πέταλα */
+
+.petal {
+    position: absolute;
+
+    width: 21px;
+    height: 21px;
+
+    border-radius: 50%;
+
+    background: #ffc928;
+}
+
+.petal1 {
+    left: 13px;
+    top: 0;
+}
+
+.petal2 {
+    left: 0;
+    top: 14px;
+}
+
+.petal3 {
+    left: 26px;
+    top: 14px;
+}
+
+.petal4 {
+    left: 13px;
+    top: 27px;
+}
+
+/* κέντρο */
+
+.sun-center {
+    position: absolute;
+
+    left: 14px;
+    top: 14px;
+
+    width: 21px;
+    height: 21px;
+
+    border-radius: 50%;
+
+    background: #70451d;
+
+    z-index: 2;
+}
+
+@keyframes flowersAppear {
+    from {
+        opacity: 0;
+        transform: scale(.2);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(.75);
+    }
+}
+
+@keyframes flowersMove {
+    from {
+        transform:
+            scale(.75)
+            translateX(0);
+    }
+
+    to {
+        transform:
+            scale(1.25)
+            translateX(55px);
+    }
+}
+
+/* =========================
+   ΚΟΠΕΛΑ
+========================= */
+
+.girl {
+    position: absolute;
+
+    left: 62%;
+    bottom: 12%;
+
+    width: 105px;
+    height: 280px;
+
+    opacity: 0;
+
+    transform: scale(.85);
+
+    animation:
+        girlAppear 2s ease 3.8s forwards;
+
+    z-index: 4;
+}
+
+/* ΞΑΝΘΑ ΜΑΛΛΙΑ */
+
+.girl-hair {
+    position: absolute;
+
+    left: 14px;
+    top: -10px;
+
+    width: 76px;
+    height: 94px;
+
+    border-radius: 50% 50% 45% 45%;
+
+    background: #f0cc6b;
+
+    z-index: 0;
+}
+
+/* κεφάλι */
+
+.girl-head {
+    position: absolute;
+
+    left: 23px;
+    top: 2px;
+
+    width: 60px;
+    height: 65px;
+
+    border-radius: 50%;
+
+    background: #f1bd91;
+
+    z-index: 1;
+}
+
+/* μαλλιά μπροστά */
+
+.girl-fringe {
+    position: absolute;
+
+    left: 23px;
+    top: -3px;
+
+    width: 60px;
+    height: 25px;
+
+    border-radius: 50%;
+
+    background: #f0cc6b;
+
+    z-index: 2;
+}
+
+/* μάτια */
+
+.girl-eyes {
+    position: absolute;
+
+    left: 17px;
+    top: 29px;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #333;
+
+    box-shadow: 21px 0 #333;
+
+    z-index: 3;
+}
+
+/* λαιμός */
+
+.girl-neck {
+    position: absolute;
+
+    left: 42px;
+    top: 58px;
+
+    width: 22px;
+    height: 25px;
+
+    background: #edb68a;
+}
+
+/* ΓΚΡΙ ΦΟΥΤΕΡ */
+
+.girl-body {
+    position: absolute;
+
+    left: 13px;
+    top: 73px;
+
+    width: 80px;
+    height: 105px;
+
+    border-radius: 20px 20px 10px 10px;
+
+    background: #909090;
+}
+
+/* χέρια */
+
+.girl-arm {
+    position: absolute;
+
+    top: 79px;
+
+    width: 19px;
+    height: 90px;
+
+    border-radius: 15px;
+
+    background: #909090;
+
+    transform-origin: top center;
+}
+
+.girl-arm-left {
+    left: 4px;
+    transform: rotate(12deg);
+}
+
+.girl-arm-right {
+    right: 4px;
+    transform: rotate(-12deg);
+
+    animation:
+        receiveFlowers 1.3s ease-in-out 6.2s forwards;
+}
+
+/* ΤΖΙΝ */
+
+.girl-leg {
+    position: absolute;
+
+    top: 170px;
+
+    width: 27px;
+    height: 108px;
+
+    background: #315d91;
+
+    border-radius: 8px;
+}
+
+.girl-leg-left {
+    left: 21px;
+}
+
+.girl-leg-right {
+    right: 21px;
+}
+
+/* =========================
+   ΤΕΛΙΚΕΣ ΚΙΝΗΣΕΙΣ
+========================= */
+
+@keyframes walkToGirl {
+
+    0% {
+        left: 35%;
+        transform: scale(.25);
+    }
+
+    25% {
+        left: 39%;
+        transform: scale(.40);
+    }
+
+    50% {
+        left: 44%;
+        transform: scale(.60);
+    }
+
+    75% {
+        left: 49%;
+        transform: scale(.85);
+    }
+
+    100% {
+        left: 53%;
+        transform: scale(1);
+    }
+}
+
+@keyframes giveFlowers {
+
+    0% {
+        transform:
+            rotate(-15deg);
+    }
+
+    100% {
+        transform:
+            rotate(-65deg)
+            translateY(-15px);
+    }
+}
+
+@keyframes girlAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes receiveFlowers {
+
+    from {
+        transform: rotate(-12deg);
+    }
+
+    to {
+        transform:
+            rotate(-45deg)
+            translate(-5px,-5px);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="scene">
+
+    <!-- ΑΝΤΡΑΣ -->
+    <div class="man">
+
+        <div class="man-head">
+            <div class="man-eyes"></div>
+        </div>
+
+        <div class="man-neck"></div>
+
+        <div class="man-body"></div>
+
+        <div class="man-hood"></div>
+
+        <div class="man-arm man-arm-left">
+            <div class="man-hand"></div>
+        </div>
+
+        <div class="man-arm man-arm-right">
+            <div class="man-hand"></div>
+        </div>
+
+        <!-- ΔΥΟ ΗΛΙΟΤΡΟΠΙΑ -->
+        <div class="flowers">
+
+            <div class="flower">
+
+                <div class="sun">
+                    <div class="petal petal1"></div>
+                    <div class="petal petal2"></div>
+                    <div class="petal petal3"></div>
+                    <div class="petal petal4"></div>
+                    <div class="sun-center"></div>
+                </div>
+
+                <div class="stem"></div>
+                <div class="leaf"></div>
+
+            </div>
+
+            <div class="flower">
+
+                <div class="sun">
+                    <div class="petal petal1"></div>
+                    <div class="petal petal2"></div>
+                    <div class="petal petal3"></div>
+                    <div class="petal petal4"></div>
+                    <div class="sun-center"></div>
+                </div>
+
+                <div class="stem"></div>
+                <div class="leaf"></div>
+
+            </div>
+
+        </div>
+
+        <div class="man-leg man-leg-left"></div>
+        <div class="man-leg man-leg-right"></div>
+
+    </div>
+
+
+    <!-- ΞΑΝΘΙΑ ΚΟΠΕΛΑ -->
+    <div class="girl">
+
+        <div class="girl-hair"></div>
+
+        <div class="girl-head">
+            <div class="girl-eyes"></div>
+        </div>
+
+        <div class="girl-fringe"></div>
+
+        <div class="girl-neck"></div>
+
+        <div class="girl-body"></div>
+
+        <div class="girl-arm girl-arm-left"></div>
+        <div class="girl-arm girl-arm-right"></div>
+
+        <div class="girl-leg girl-leg-left"></div>
+        <div class="girl-leg girl-leg-right"></div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
