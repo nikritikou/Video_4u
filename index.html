@@ -1,1 +1,518 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ένα λουλούδι για σένα 🌸</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: hidden;
+  background: #050711;
+  font-family: Arial, sans-serif;
+}
+
+.scene {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at 50% 25%, #35406d 0%, #151b38 45%, #050711 100%);
+}
+
+/* Αστέρια */
+.scene::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    radial-gradient(circle, white 1px, transparent 2px),
+    radial-gradient(circle, #fff 1px, transparent 2px);
+
+  background-size: 100px 100px, 170px 170px;
+  background-position: 20px 30px, 70px 90px;
+
+  opacity: 0.5;
+}
+
+/* Μήνυμα */
+.message {
+  position: absolute;
+  top: 8%;
+  width: 100%;
+  text-align: center;
+  color: white;
+  opacity: 0;
+  animation: messageIn 2s ease forwards;
+  animation-delay: 6s;
+  z-index: 10;
+}
+
+.message span {
+  font-size: 40px;
+}
+
+.message p {
+  margin-top: 8px;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+@keyframes messageIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* ΑΝΘΡΩΠΑΚΙ */
+#person {
+  position: absolute;
+
+  left: 50%;
+  bottom: 12%;
+
+  width: 70px;
+  height: 180px;
+
+  transform: translateX(-50%) scale(0.25);
+
+  animation:
+    walkTowards 5s cubic-bezier(.25,.7,.25,1) forwards;
+}
+
+/* Κεφάλι */
+.head {
+  position: absolute;
+
+  width: 52px;
+  height: 52px;
+
+  left: 9px;
+  top: 0;
+
+  border-radius: 50%;
+
+  background: #f1c7a5;
+
+  box-shadow:
+    inset -5px -4px 0 rgba(0,0,0,0.08);
+}
+
+/* Μαλλιά */
+.head::before {
+  content: "";
+
+  position: absolute;
+
+  width: 55px;
+  height: 25px;
+
+  left: -2px;
+  top: -3px;
+
+  border-radius: 50% 50% 30% 30%;
+
+  background: #251b22;
+}
+
+/* Μάτια */
+.head::after {
+  content: "•  •";
+
+  position: absolute;
+
+  top: 22px;
+  left: 13px;
+
+  color: #222;
+  font-size: 13px;
+  letter-spacing: 8px;
+}
+
+/* Σώμα */
+.body {
+  position: absolute;
+
+  width: 48px;
+  height: 72px;
+
+  left: 11px;
+  top: 51px;
+
+  border-radius: 18px 18px 8px 8px;
+
+  background: #4777a9;
+}
+
+/* Χέρια */
+.arm {
+  position: absolute;
+
+  width: 13px;
+  height: 65px;
+
+  top: 56px;
+
+  border-radius: 10px;
+
+  background: #f1c7a5;
+
+  transform-origin: top center;
+}
+
+.left-arm {
+  left: 4px;
+  transform: rotate(12deg);
+}
+
+.right-arm {
+  right: 4px;
+  transform: rotate(-12deg);
+
+  animation:
+    giveFlower 1s ease-in-out infinite alternate;
+
+  animation-delay: 5s;
+}
+
+/* Πόδια */
+.leg {
+  position: absolute;
+
+  width: 15px;
+  height: 65px;
+
+  top: 115px;
+
+  border-radius: 10px;
+
+  background: #20283d;
+
+  transform-origin: top center;
+}
+
+.left-leg {
+  left: 15px;
+  animation: walkLeft 0.45s infinite alternate;
+}
+
+.right-leg {
+  right: 15px;
+  animation: walkRight 0.45s infinite alternate;
+}
+
+@keyframes walkLeft {
+  from {
+    transform: rotate(25deg);
+  }
+
+  to {
+    transform: rotate(-25deg);
+  }
+}
+
+@keyframes walkRight {
+  from {
+    transform: rotate(-25deg);
+  }
+
+  to {
+    transform: rotate(25deg);
+  }
+}
+
+/* ΛΟΥΛΟΥΔΙ */
+.flower {
+  position: absolute;
+
+  width: 70px;
+  height: 110px;
+
+  right: -65px;
+  top: 75px;
+
+  opacity: 0;
+
+  transform: rotate(-10deg) scale(0.4);
+
+  animation:
+    flowerAppear 1s ease forwards,
+    flowerMove 1s ease-in-out infinite alternate;
+
+  animation-delay: 5s, 6s;
+}
+
+/* Κλαδί */
+.stem {
+  position: absolute;
+
+  width: 6px;
+  height: 85px;
+
+  left: 31px;
+  top: 22px;
+
+  background: #4e9b55;
+
+  border-radius: 5px;
+
+  transform: rotate(8deg);
+}
+
+/* Φύλλο */
+.leaf {
+  position: absolute;
+
+  width: 28px;
+  height: 13px;
+
+  background: #55a95b;
+
+  border-radius: 100% 0;
+
+  left: 10px;
+  top: 65px;
+
+  transform: rotate(20deg);
+}
+
+/* Πέταλα */
+.petal {
+  position: absolute;
+
+  width: 30px;
+  height: 30px;
+
+  background: #ff719c;
+
+  border-radius: 50%;
+
+  left: 18px;
+  top: 0;
+
+  box-shadow:
+    0 0 12px rgba(255,113,156,0.5);
+}
+
+.p2 {
+  transform: translateX(-14px) translateY(12px);
+}
+
+.p3 {
+  transform: translateX(14px) translateY(12px);
+}
+
+.p4 {
+  transform: translateY(24px);
+}
+
+/* Κέντρο λουλουδιού */
+.center {
+  position: absolute;
+
+  width: 19px;
+  height: 19px;
+
+  left: 23px;
+  top: 18px;
+
+  border-radius: 50%;
+
+  background: #ffd95a;
+
+  z-index: 5;
+}
+
+@keyframes flowerAppear {
+  to {
+    opacity: 1;
+    transform: rotate(-5deg) scale(1);
+  }
+}
+
+@keyframes flowerMove {
+  from {
+    transform: rotate(-5deg) translateY(0) scale(1);
+  }
+
+  to {
+    transform: rotate(2deg) translateY(-8px) scale(1.08);
+  }
+}
+
+/* Κίνηση προς την οθόνη */
+@keyframes walkTowards {
+
+  0% {
+    transform:
+      translateX(-50%)
+      translateY(-42vh)
+      scale(0.20);
+  }
+
+  20% {
+    transform:
+      translateX(-50%)
+      translateY(-32vh)
+      scale(0.30);
+  }
+
+  40% {
+    transform:
+      translateX(-50%)
+      translateY(-22vh)
+      scale(0.45);
+  }
+
+  60% {
+    transform:
+      translateX(-50%)
+      translateY(-12vh)
+      scale(0.65);
+  }
+
+  80% {
+    transform:
+      translateX(-50%)
+      translateY(-5vh)
+      scale(0.95);
+  }
+
+  100% {
+    transform:
+      translateX(-50%)
+      translateY(0)
+      scale(1.35);
+  }
+}
+
+/* Κίνηση χεριού */
+@keyframes giveFlower {
+
+  from {
+    transform: rotate(-15deg);
+  }
+
+  to {
+    transform: rotate(-45deg) translateY(-10px);
+  }
+}
+
+/* Κουμπί */
+#restart {
+  position: absolute;
+
+  bottom: 25px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  padding: 10px 22px;
+
+  border: none;
+  border-radius: 25px;
+
+  background: rgba(255,255,255,0.15);
+
+  color: white;
+
+  font-size: 15px;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(5px);
+
+  z-index: 20;
+
+  opacity: 0;
+
+  animation: buttonIn 1s ease forwards;
+  animation-delay: 7s;
+}
+
+#restart:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+@keyframes buttonIn {
+  to {
+    opacity: 1;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="scene">
+
+  <div class="message">
+    <span>🌸</span>
+    <p>Ένα λουλούδι για σένα</p>
+  </div>
+
+  <div id="person">
+
+    <div class="head"></div>
+
+    <div class="body"></div>
+
+    <div class="arm left-arm"></div>
+
+    <div class="arm right-arm"></div>
+
+    <div class="leg left-leg"></div>
+
+    <div class="leg right-leg"></div>
+
+    <div class="flower">
+
+      <div class="stem"></div>
+
+      <div class="leaf"></div>
+
+      <div class="petal p1"></div>
+      <div class="petal p2"></div>
+      <div class="petal p3"></div>
+      <div class="petal p4"></div>
+
+      <div class="center"></div>
+
+    </div>
+
+  </div>
+
+  <button id="restart">Ξανά 🌸</button>
+
+</div>
+
+<script>
+
+const person = document.getElementById("person");
+const restart = document.getElementById("restart");
+
+restart.addEventListener("click", () => {
+
+  person.style.animation = "none";
+
+  void person.offsetWidth;
+
+  person.style.animation =
+    "walkTowards 5s cubic-bezier(.25,.7,.25,1) forwards";
+
+});
+
+</script>
+
+</body>
+</html>
 
