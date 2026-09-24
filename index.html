@@ -3,450 +3,524 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ένα λουλούδι για σένα 🌸</title>
 
 <style>
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  overflow: hidden;
-  background: #050711;
-  font-family: Arial, sans-serif;
+    overflow: hidden;
+    background: linear-gradient(#17213d, #52658c);
 }
 
+/* ΣΚΗΝΗ */
 .scene {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-
-  background:
-    radial-gradient(circle at 50% 25%, #35406d 0%, #151b38 45%, #050711 100%);
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    perspective: 900px;
 }
 
-/* Αστέρια */
-.scene::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background-image:
-    radial-gradient(circle, white 1px, transparent 2px),
-    radial-gradient(circle, #fff 1px, transparent 2px);
-
-  background-size: 100px 100px, 170px 170px;
-  background-position: 20px 30px, 70px 90px;
-
-  opacity: 0.5;
+/* ΕΔΑΦΟΣ */
+.ground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 35%;
+    background: linear-gradient(#31512f, #172b18);
 }
 
-/* Μήνυμα */
-.message {
-  position: absolute;
-  top: 8%;
-  width: 100%;
-  text-align: center;
-  color: white;
-  opacity: 0;
-  animation: messageIn 2s ease forwards;
-  animation-delay: 6s;
-  z-index: 10;
-}
+/* =========================
+   ΑΝΤΡΑΣ
+========================= */
 
-.message span {
-  font-size: 40px;
-}
-
-.message p {
-  margin-top: 8px;
-  font-size: 20px;
-  letter-spacing: 2px;
-}
-
-@keyframes messageIn {
-  to {
-    opacity: 1;
-  }
-}
-
-/* ΑΝΘΡΩΠΑΚΙ */
-#person {
-  position: absolute;
-
-  left: 50%;
-  bottom: 12%;
-
-  width: 70px;
-  height: 180px;
-
-  transform: translateX(-50%) scale(0.25);
-
-  animation:
-    walkTowards 5s cubic-bezier(.25,.7,.25,1) forwards;
+.man {
+    position: absolute;
+    left: 50%;
+    bottom: 25%;
+    width: 90px;
+    height: 250px;
+    transform: translateX(-50%) scale(.25);
+    animation: manApproach 6s ease-in-out forwards;
+    z-index: 5;
 }
 
 /* Κεφάλι */
-.head {
-  position: absolute;
-
-  width: 52px;
-  height: 52px;
-
-  left: 9px;
-  top: 0;
-
-  border-radius: 50%;
-
-  background: #f1c7a5;
-
-  box-shadow:
-    inset -5px -4px 0 rgba(0,0,0,0.08);
+.man .head {
+    position: absolute;
+    width: 58px;
+    height: 62px;
+    left: 16px;
+    top: 0;
+    border-radius: 50%;
+    background: #c98f68;
 }
 
-/* Μαλλιά */
-.head::before {
-  content: "";
+/* πρόσωπο */
+.man .head::after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    left: 15px;
+    top: 27px;
+    border-radius: 50%;
+    background: #222;
 
-  position: absolute;
-
-  width: 55px;
-  height: 25px;
-
-  left: -2px;
-  top: -3px;
-
-  border-radius: 50% 50% 30% 30%;
-
-  background: #251b22;
+    box-shadow: 23px 0 #222;
 }
 
-/* Μάτια */
-.head::after {
-  content: "•  •";
-
-  position: absolute;
-
-  top: 22px;
-  left: 13px;
-
-  color: #222;
-  font-size: 13px;
-  letter-spacing: 8px;
+/* λαιμός */
+.man .neck {
+    position: absolute;
+    width: 22px;
+    height: 20px;
+    left: 34px;
+    top: 55px;
+    background: #bd805c;
 }
 
-/* Σώμα */
-.body {
-  position: absolute;
-
-  width: 48px;
-  height: 72px;
-
-  left: 11px;
-  top: 51px;
-
-  border-radius: 18px 18px 8px 8px;
-
-  background: #4777a9;
+/* ΦΟΥΤΕΡ */
+.man .body {
+    position: absolute;
+    width: 72px;
+    height: 100px;
+    left: 9px;
+    top: 68px;
+    border-radius: 18px 18px 8px 8px;
+    background: #111;
 }
 
-/* Χέρια */
-.arm {
-  position: absolute;
-
-  width: 13px;
-  height: 65px;
-
-  top: 56px;
-
-  border-radius: 10px;
-
-  background: #f1c7a5;
-
-  transform-origin: top center;
+/* κουκούλα */
+.man .hood {
+    position: absolute;
+    width: 60px;
+    height: 35px;
+    left: 15px;
+    top: 60px;
+    border-radius: 50%;
+    border: 8px solid #080808;
 }
 
-.left-arm {
-  left: 4px;
-  transform: rotate(12deg);
+/* χέρια */
+.man .arm {
+    position: absolute;
+    width: 18px;
+    height: 90px;
+    top: 76px;
+    border-radius: 15px;
+    background: #111;
+    transform-origin: top center;
 }
 
-.right-arm {
-  right: 4px;
-  transform: rotate(-12deg);
-
-  animation:
-    giveFlower 1s ease-in-out infinite alternate;
-
-  animation-delay: 5s;
+.man .left-arm {
+    left: 0;
+    transform: rotate(15deg);
 }
 
-/* Πόδια */
-.leg {
-  position: absolute;
-
-  width: 15px;
-  height: 65px;
-
-  top: 115px;
-
-  border-radius: 10px;
-
-  background: #20283d;
-
-  transform-origin: top center;
+.man .right-arm {
+    right: 0;
+    transform: rotate(-15deg);
+    animation: offerArm 1.2s ease-in-out 5.5s forwards;
 }
 
-.left-leg {
-  left: 15px;
-  animation: walkLeft 0.45s infinite alternate;
+/* χέρια/δέρμα */
+.man .hand {
+    position: absolute;
+    width: 20px;
+    height: 22px;
+    border-radius: 50%;
+    background: #c98f68;
+    bottom: -10px;
+    left: -1px;
 }
 
-.right-leg {
-  right: 15px;
-  animation: walkRight 0.45s infinite alternate;
+/* πόδια */
+.man .leg {
+    position: absolute;
+    width: 23px;
+    height: 90px;
+    top: 160px;
+    background: #111;
+    border-radius: 10px;
+    transform-origin: top center;
+}
+
+.man .left-leg {
+    left: 18px;
+    animation: walkLeft .45s infinite alternate;
+}
+
+.man .right-leg {
+    right: 18px;
+    animation: walkRight .45s infinite alternate;
+}
+
+/* =========================
+   ΚΟΠΕΛΑ
+========================= */
+
+.girl {
+    position: absolute;
+    left: 50%;
+    bottom: 22%;
+    width: 100px;
+    height: 260px;
+
+    transform:
+        translateX(100px)
+        scale(.25);
+
+    animation: girlAppear 6s ease-in-out forwards;
+
+    z-index: 4;
+}
+
+/* κεφάλι */
+.girl .head {
+    position: absolute;
+    width: 60px;
+    height: 64px;
+    left: 20px;
+    top: 0;
+    border-radius: 50%;
+    background: #f0bd91;
+}
+
+/* Ξανθά μαλλιά */
+.girl .hair {
+    position: absolute;
+    width: 72px;
+    height: 90px;
+    left: 14px;
+    top: -8px;
+    border-radius: 50% 50% 45% 45%;
+    background: #f2d27a;
+    z-index: -1;
+}
+
+/* μάτια */
+.girl .head::after {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    left: 16px;
+    top: 29px;
+    border-radius: 50%;
+    background: #333;
+
+    box-shadow: 22px 0 #333;
+}
+
+/* λαιμός */
+.girl .neck {
+    position: absolute;
+    width: 22px;
+    height: 20px;
+    left: 39px;
+    top: 58px;
+    background: #efb98c;
+}
+
+/* γκρι φούτερ */
+.girl .body {
+    position: absolute;
+    width: 76px;
+    height: 105px;
+    left: 12px;
+    top: 70px;
+    border-radius: 18px 18px 8px 8px;
+    background: #8c8c8c;
+}
+
+/* χέρια */
+.girl .arm {
+    position: absolute;
+    width: 18px;
+    height: 85px;
+    top: 77px;
+    border-radius: 15px;
+    background: #8c8c8c;
+    transform-origin: top center;
+}
+
+.girl .left-arm {
+    left: 3px;
+    transform: rotate(15deg);
+}
+
+.girl .right-arm {
+    right: 3px;
+    transform: rotate(-15deg);
+}
+
+/* τζιν παντελόνι */
+.girl .leg {
+    position: absolute;
+    width: 25px;
+    height: 95px;
+    top: 165px;
+    background: #315b91;
+    border-radius: 8px;
+}
+
+.girl .left-leg {
+    left: 22px;
+}
+
+.girl .right-leg {
+    right: 22px;
+}
+
+/* =========================
+   ΔΥΟ ΗΛΙΟΤΡΟΠΙΑ
+========================= */
+
+.sunflowers {
+    position: absolute;
+
+    left: 70px;
+    top: 20px;
+
+    width: 100px;
+    height: 130px;
+
+    transform: rotate(-12deg) scale(.4);
+    opacity: 0;
+
+    animation:
+        flowersAppear 1s ease-in-out 5.4s forwards,
+        flowersOffer 1.2s ease-in-out 6.2s forwards;
+}
+
+.flower {
+    position: absolute;
+    width: 50px;
+    height: 120px;
+}
+
+/* δεύτερο λουλούδι */
+.flower.two {
+    left: 35px;
+    top: 12px;
+    transform: rotate(10deg);
+}
+
+/* βλαστός */
+.stem {
+    position: absolute;
+    width: 6px;
+    height: 85px;
+    left: 22px;
+    top: 32px;
+    border-radius: 5px;
+    background: #398044;
+}
+
+/* φύλλο */
+.leaf {
+    position: absolute;
+    width: 28px;
+    height: 14px;
+    left: 2px;
+    top: 65px;
+    background: #4d984d;
+    border-radius: 100% 0;
+    transform: rotate(-20deg);
+}
+
+/* πέταλα */
+.sunflower {
+    position: absolute;
+    left: 2px;
+    top: 0;
+    width: 45px;
+    height: 45px;
+}
+
+.petal {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    background: #ffc928;
+}
+
+.p1 { left: 13px; top: 0; }
+.p2 { left: 0; top: 12px; }
+.p3 { left: 27px; top: 12px; }
+.p4 { left: 13px; top: 25px; }
+
+.center {
+    position: absolute;
+    left: 13px;
+    top: 13px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #70451c;
+    z-index: 3;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes manApproach {
+
+    0% {
+        transform:
+            translateX(-50%)
+            translateY(-40vh)
+            scale(.22);
+    }
+
+    25% {
+        transform:
+            translateX(-50%)
+            translateY(-27vh)
+            scale(.35);
+    }
+
+    50% {
+        transform:
+            translateX(-50%)
+            translateY(-16vh)
+            scale(.55);
+    }
+
+    75% {
+        transform:
+            translateX(-50%)
+            translateY(-7vh)
+            scale(.85);
+    }
+
+    100% {
+        transform:
+            translateX(-50%)
+            translateY(0)
+            scale(1.15);
+    }
+}
+
+@keyframes girlAppear {
+
+    0% {
+        transform:
+            translateX(180px)
+            scale(.25);
+        opacity: 0;
+    }
+
+    50% {
+        transform:
+            translateX(180px)
+            scale(.25);
+        opacity: 0;
+    }
+
+    70% {
+        transform:
+            translateX(110px)
+            scale(.8);
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateX(110px)
+            scale(1.15);
+        opacity: 1;
+    }
 }
 
 @keyframes walkLeft {
-  from {
-    transform: rotate(25deg);
-  }
 
-  to {
-    transform: rotate(-25deg);
-  }
+    from {
+        transform: rotate(25deg);
+    }
+
+    to {
+        transform: rotate(-25deg);
+    }
 }
 
 @keyframes walkRight {
-  from {
-    transform: rotate(-25deg);
-  }
 
-  to {
-    transform: rotate(25deg);
-  }
+    from {
+        transform: rotate(-25deg);
+    }
+
+    to {
+        transform: rotate(25deg);
+    }
 }
 
-/* ΛΟΥΛΟΥΔΙ */
-.flower {
-  position: absolute;
+@keyframes offerArm {
 
-  width: 70px;
-  height: 110px;
+    0% {
+        transform: rotate(-15deg);
+    }
 
-  right: -65px;
-  top: 75px;
-
-  opacity: 0;
-
-  transform: rotate(-10deg) scale(0.4);
-
-  animation:
-    flowerAppear 1s ease forwards,
-    flowerMove 1s ease-in-out infinite alternate;
-
-  animation-delay: 5s, 6s;
+    100% {
+        transform:
+            rotate(-65deg)
+            translateY(-15px);
+    }
 }
 
-/* Κλαδί */
-.stem {
-  position: absolute;
+@keyframes flowersAppear {
 
-  width: 6px;
-  height: 85px;
+    from {
+        opacity: 0;
+        transform: rotate(-12deg) scale(.2);
+    }
 
-  left: 31px;
-  top: 22px;
-
-  background: #4e9b55;
-
-  border-radius: 5px;
-
-  transform: rotate(8deg);
+    to {
+        opacity: 1;
+        transform: rotate(-12deg) scale(.7);
+    }
 }
 
-/* Φύλλο */
-.leaf {
-  position: absolute;
+@keyframes flowersOffer {
 
-  width: 28px;
-  height: 13px;
+    from {
+        transform:
+            rotate(-12deg)
+            scale(.7)
+            translateX(0);
+    }
 
-  background: #55a95b;
-
-  border-radius: 100% 0;
-
-  left: 10px;
-  top: 65px;
-
-  transform: rotate(20deg);
+    to {
+        transform:
+            rotate(-3deg)
+            scale(1.4)
+            translateX(45px);
+    }
 }
 
-/* Πέταλα */
-.petal {
-  position: absolute;
-
-  width: 30px;
-  height: 30px;
-
-  background: #ff719c;
-
-  border-radius: 50%;
-
-  left: 18px;
-  top: 0;
-
-  box-shadow:
-    0 0 12px rgba(255,113,156,0.5);
-}
-
-.p2 {
-  transform: translateX(-14px) translateY(12px);
-}
-
-.p3 {
-  transform: translateX(14px) translateY(12px);
-}
-
-.p4 {
-  transform: translateY(24px);
-}
-
-/* Κέντρο λουλουδιού */
-.center {
-  position: absolute;
-
-  width: 19px;
-  height: 19px;
-
-  left: 23px;
-  top: 18px;
-
-  border-radius: 50%;
-
-  background: #ffd95a;
-
-  z-index: 5;
-}
-
-@keyframes flowerAppear {
-  to {
-    opacity: 1;
-    transform: rotate(-5deg) scale(1);
-  }
-}
-
-@keyframes flowerMove {
-  from {
-    transform: rotate(-5deg) translateY(0) scale(1);
-  }
-
-  to {
-    transform: rotate(2deg) translateY(-8px) scale(1.08);
-  }
-}
-
-/* Κίνηση προς την οθόνη */
-@keyframes walkTowards {
-
-  0% {
-    transform:
-      translateX(-50%)
-      translateY(-42vh)
-      scale(0.20);
-  }
-
-  20% {
-    transform:
-      translateX(-50%)
-      translateY(-32vh)
-      scale(0.30);
-  }
-
-  40% {
-    transform:
-      translateX(-50%)
-      translateY(-22vh)
-      scale(0.45);
-  }
-
-  60% {
-    transform:
-      translateX(-50%)
-      translateY(-12vh)
-      scale(0.65);
-  }
-
-  80% {
-    transform:
-      translateX(-50%)
-      translateY(-5vh)
-      scale(0.95);
-  }
-
-  100% {
-    transform:
-      translateX(-50%)
-      translateY(0)
-      scale(1.35);
-  }
-}
-
-/* Κίνηση χεριού */
-@keyframes giveFlower {
-
-  from {
-    transform: rotate(-15deg);
-  }
-
-  to {
-    transform: rotate(-45deg) translateY(-10px);
-  }
-}
-
-/* Κουμπί */
-#restart {
-  position: absolute;
-
-  bottom: 25px;
-  left: 50%;
-
-  transform: translateX(-50%);
-
-  padding: 10px 22px;
-
-  border: none;
-  border-radius: 25px;
-
-  background: rgba(255,255,255,0.15);
-
-  color: white;
-
-  font-size: 15px;
-
-  cursor: pointer;
-
-  backdrop-filter: blur(5px);
-
-  z-index: 20;
-
-  opacity: 0;
-
-  animation: buttonIn 1s ease forwards;
-  animation-delay: 7s;
-}
-
-#restart:hover {
-  background: rgba(255,255,255,0.3);
-}
-
-@keyframes buttonIn {
-  to {
-    opacity: 1;
-  }
+/* μικρή λάμψη */
+.scene::after {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    left: 50%;
+    top: 35%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(255,255,255,.08),
+        transparent 65%
+    );
+    pointer-events: none;
 }
 </style>
 </head>
@@ -455,63 +529,82 @@ body {
 
 <div class="scene">
 
-  <div class="message">
-    <span>🌸</span>
-    <p>Ένα λουλούδι για σένα</p>
-  </div>
+    <div class="ground"></div>
 
-  <div id="person">
+    <!-- ΑΝΤΡΑΣ -->
+    <div class="man">
 
-    <div class="head"></div>
+        <div class="head"></div>
+        <div class="neck"></div>
+        <div class="body"></div>
+        <div class="hood"></div>
 
-    <div class="body"></div>
+        <div class="arm left-arm">
+            <div class="hand"></div>
+        </div>
 
-    <div class="arm left-arm"></div>
+        <div class="arm right-arm">
+            <div class="hand"></div>
+        </div>
 
-    <div class="arm right-arm"></div>
+        <div class="leg left-leg"></div>
+        <div class="leg right-leg"></div>
 
-    <div class="leg left-leg"></div>
+        <!-- ΔΥΟ ΗΛΙΟΤΡΟΠΙΑ -->
+        <div class="sunflowers">
 
-    <div class="leg right-leg"></div>
+            <div class="flower one">
 
-    <div class="flower">
+                <div class="sunflower">
+                    <div class="petal p1"></div>
+                    <div class="petal p2"></div>
+                    <div class="petal p3"></div>
+                    <div class="petal p4"></div>
+                    <div class="center"></div>
+                </div>
 
-      <div class="stem"></div>
+                <div class="stem"></div>
+                <div class="leaf"></div>
 
-      <div class="leaf"></div>
+            </div>
 
-      <div class="petal p1"></div>
-      <div class="petal p2"></div>
-      <div class="petal p3"></div>
-      <div class="petal p4"></div>
+            <div class="flower two">
 
-      <div class="center"></div>
+                <div class="sunflower">
+                    <div class="petal p1"></div>
+                    <div class="petal p2"></div>
+                    <div class="petal p3"></div>
+                    <div class="petal p4"></div>
+                    <div class="center"></div>
+                </div>
+
+                <div class="stem"></div>
+                <div class="leaf"></div>
+
+            </div>
+
+        </div>
 
     </div>
 
-  </div>
 
-  <button id="restart">Ξανά 🌸</button>
+    <!-- ΚΟΠΕΛΑ -->
+    <div class="girl">
+
+        <div class="hair"></div>
+        <div class="head"></div>
+        <div class="neck"></div>
+        <div class="body"></div>
+
+        <div class="arm left-arm"></div>
+        <div class="arm right-arm"></div>
+
+        <div class="leg left-leg"></div>
+        <div class="leg right-leg"></div>
+
+    </div>
 
 </div>
-
-<script>
-
-const person = document.getElementById("person");
-const restart = document.getElementById("restart");
-
-restart.addEventListener("click", () => {
-
-  person.style.animation = "none";
-
-  void person.offsetWidth;
-
-  person.style.animation =
-    "walkTowards 5s cubic-bezier(.25,.7,.25,1) forwards";
-
-});
-
-</script>
 
 </body>
 </html>
