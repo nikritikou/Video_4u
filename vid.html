@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mini Cooper Love Story</title>
+<title>Μια μικρή ιστορία αγάπης</title>
 
 <style>
 * {
@@ -16,7 +16,10 @@ html, body {
     height: 100%;
     overflow: hidden;
     font-family: Arial, sans-serif;
-    background: #d9d0c3;
+}
+
+body {
+    background: #c9d4dc;
 }
 
 .scene {
@@ -27,100 +30,153 @@ html, body {
     background:
         linear-gradient(
             to bottom,
-            #b9c8d5 0%,
-            #dce1df 52%,
-            #8d8b87 52%,
-            #777572 100%
+            #b9cbd6 0%,
+            #dce1df 54%,
+            #a5a29c 54%,
+            #a5a29c 70%,
+            #555655 70%,
+            #414242 100%
         );
 }
 
-/* =========================
+/* =====================================
    ΠΟΛΥΚΑΤΟΙΚΙΕΣ
-========================= */
-
-.buildings {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 55%;
-}
+===================================== */
 
 .building {
     position: absolute;
-    bottom: 0;
-    background: #a99f96;
-    border-left: 3px solid rgba(0,0,0,.08);
-    border-right: 3px solid rgba(0,0,0,.08);
+    bottom: 46%;
+    background: #a69d95;
+    border: 3px solid #8b847e;
 }
 
-.building.one {
+.building.left {
     left: 0;
-    width: 27%;
-    height: 88%;
-    background: #b7aaa0;
+    width: 31%;
+    height: 58%;
 }
 
-.building.two {
-    left: 23%;
+.building.middle {
+    left: 28%;
     width: 30%;
-    height: 72%;
-    background: #9e9b99;
+    height: 66%;
+    background: #b2aaa3;
 }
 
-.building.three {
-    left: 49%;
-    width: 26%;
-    height: 91%;
-    background: #b2aaa4;
-}
-
-.building.four {
+.building.right {
     right: 0;
-    width: 30%;
-    height: 78%;
-    background: #a29b95;
+    width: 34%;
+    height: 61%;
+    background: #98938f;
 }
 
 .window {
     position: absolute;
-    width: 24px;
-    height: 32px;
-    background: #dfe5df;
-    border: 3px solid #77736e;
+    width: 30px;
+    height: 40px;
+    background: #d7dfe0;
+    border: 3px solid #6f6c68;
 }
 
 .window.lit {
-    background: #f7dc87;
+    background: #f2d47e;
 }
 
-.windows {
+.b1w1 { left: 20px; top: 35px; }
+.b1w2 { left: 90px; top: 35px; }
+.b1w3 { left: 160px; top: 35px; }
+.b1w4 { left: 20px; top: 105px; }
+.b1w5 { left: 90px; top: 105px; }
+.b1w6 { left: 160px; top: 105px; }
+.b1w7 { left: 20px; top: 175px; }
+.b1w8 { left: 90px; top: 175px; }
+.b1w9 { left: 160px; top: 175px; }
+
+.b2w1 { left: 30px; top: 40px; }
+.b2w2 { left: 105px; top: 40px; }
+.b2w3 { left: 180px; top: 40px; }
+.b2w4 { left: 30px; top: 115px; }
+.b2w5 { left: 105px; top: 115px; }
+.b2w6 { left: 180px; top: 115px; }
+.b2w7 { left: 30px; top: 190px; }
+.b2w8 { left: 105px; top: 190px; }
+.b2w9 { left: 180px; top: 190px; }
+
+.b3w1 { left: 25px; top: 35px; }
+.b3w2 { left: 100px; top: 35px; }
+.b3w3 { left: 175px; top: 35px; }
+.b3w4 { left: 25px; top: 110px; }
+.b3w5 { left: 100px; top: 110px; }
+.b3w6 { left: 175px; top: 110px; }
+.b3w7 { left: 25px; top: 185px; }
+.b3w8 { left: 100px; top: 185px; }
+.b3w9 { left: 175px; top: 185px; }
+
+/* =====================================
+   ΠΡΑΣΙΝΗ ΠΟΡΤΑ
+===================================== */
+
+.entrance {
     position: absolute;
-    inset: 15px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 48px;
-    gap: 16px 12px;
+    left: 20%;
+    bottom: 46%;
+    width: 105px;
+    height: 210px;
+    background: #77706a;
+    border: 6px solid #615d58;
+    z-index: 5;
 }
 
-.window.small {
-    width: 20px;
-    height: 28px;
+.green-door {
+    position: absolute;
+    left: 13px;
+    bottom: 0;
+    width: 79px;
+    height: 194px;
+    background: #2d6849;
+    border: 4px solid #1d4935;
+    border-radius: 4px 4px 0 0;
+    transform-origin: left center;
+    transition: transform .8s ease;
 }
 
-/* =========================
-   ΔΡΟΜΟΣ
-========================= */
+.green-door.open {
+    transform: perspective(500px) rotateY(-65deg);
+}
+
+.door-window {
+    position: absolute;
+    top: 18px;
+    left: 16px;
+    width: 43px;
+    height: 62px;
+    background: #8eaaa0;
+    border: 3px solid #193d2d;
+}
+
+.door-handle {
+    position: absolute;
+    right: 9px;
+    top: 102px;
+    width: 8px;
+    height: 8px;
+    background: #d8bd65;
+    border-radius: 50%;
+}
+
+/* =====================================
+   ΠΕΖΟΔΡΟΜΙΟ ΚΑΙ ΔΡΟΜΟΣ
+===================================== */
 
 .sidewalk {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 25%;
-    height: 9%;
-    background: #aaa69f;
-    border-top: 5px solid #77746f;
-    border-bottom: 4px solid #85817c;
+    bottom: 30%;
+    height: 16%;
+    background: #aaa7a1;
+    border-top: 5px solid #817e79;
+    border-bottom: 5px solid #8b8882;
 }
 
 .road {
@@ -128,226 +184,214 @@ html, body {
     left: 0;
     right: 0;
     bottom: 0;
-    height: 25%;
-    background: #4f5050;
+    height: 30%;
+    background: #4c4e4e;
 }
 
 .road-line {
     position: absolute;
-    left: 0;
-    right: 0;
     top: 52%;
+    left: 0;
+    width: 100%;
     height: 5px;
     background: repeating-linear-gradient(
         to right,
-        #e8e4d8 0 70px,
-        transparent 70px 130px
+        #e6e2d7 0 75px,
+        transparent 75px 145px
     );
 }
 
-/* =========================
+/* =====================================
    MINI COOPER
-========================= */
+===================================== */
 
 .car {
     position: absolute;
+    left: 53%;
+    bottom: 31%;
     width: 330px;
     height: 145px;
-    left: 50%;
-    bottom: 29%;
-    transform: translateX(-50%);
     z-index: 20;
-    transition: left 3.5s ease-in;
+    transform: translateX(-50%);
+    transition: left 4s ease-in-out;
 }
 
-.car.drive-away {
-    left: 120%;
+.car.drive {
+    left: 125%;
 }
 
 .car-body {
     position: absolute;
     left: 0;
-    bottom: 15px;
+    bottom: 18px;
     width: 330px;
-    height: 90px;
-    border-radius: 55px 75px 25px 25px;
-    background: #cdbb9a;
-    border: 4px solid #514b43;
-    box-shadow: inset 0 -8px 0 rgba(0,0,0,.08);
+    height: 88px;
+    background: #cdbc9a;
+    border: 4px solid #514c45;
+    border-radius: 55px 72px 25px 25px;
 }
 
 .car-roof {
     position: absolute;
-    left: 70px;
-    top: 10px;
-    width: 190px;
-    height: 75px;
-    background: #1f2020;
-    border-radius: 85px 85px 15px 15px;
-    border: 4px solid #514b43;
+    left: 68px;
+    top: 7px;
+    width: 195px;
+    height: 76px;
+    background: #202121;
+    border: 4px solid #514c45;
+    border-radius: 80px 80px 10px 10px;
+    z-index: 4;
 }
 
-.window-front,
-.window-back {
+.car-window {
     position: absolute;
     top: 18px;
-    height: 53px;
-    background: #91a2aa;
-    border: 3px solid #393a3a;
+    height: 52px;
+    background: #8ea2ab;
+    border: 3px solid #353838;
+    z-index: 5;
 }
 
-.window-front {
-    left: 158px;
-    width: 87px;
-    border-radius: 5px 45px 5px 5px;
-}
-
-.window-back {
+.car-window.back {
     left: 82px;
     width: 70px;
-    border-radius: 40px 5px 5px 5px;
+    border-radius: 38px 5px 5px 5px;
+}
+
+.car-window.front {
+    left: 158px;
+    width: 87px;
+    border-radius: 5px 42px 5px 5px;
 }
 
 .window-divider {
     position: absolute;
-    left: 154px;
-    top: 15px;
+    left: 153px;
+    top: 14px;
     width: 5px;
-    height: 63px;
-    background: #272828;
+    height: 62px;
+    background: #252626;
+    z-index: 7;
 }
 
 .wheel {
     position: absolute;
-    width: 58px;
-    height: 58px;
     bottom: 0;
+    width: 60px;
+    height: 60px;
+    background: #222;
+    border: 5px solid #353535;
     border-radius: 50%;
-    background: #202020;
-    border: 5px solid #343434;
-    z-index: 5;
+    z-index: 12;
 }
 
 .wheel::after {
     content: "";
     position: absolute;
+    left: 14px;
+    top: 14px;
     width: 22px;
     height: 22px;
-    left: 13px;
-    top: 13px;
+    background: #aaa;
     border-radius: 50%;
-    background: #bdbdbd;
 }
 
 .wheel.left {
-    left: 47px;
+    left: 43px;
 }
 
 .wheel.right {
-    right: 47px;
+    right: 43px;
 }
 
-.light {
+.headlight {
     position: absolute;
+    right: 2px;
+    top: 47px;
     width: 25px;
     height: 20px;
-    background: #fff2ae;
-    border: 3px solid #625a4e;
+    background: #fff0a8;
+    border: 3px solid #635a4f;
     border-radius: 50%;
-    top: 45px;
+    z-index: 15;
 }
 
-.light.front {
-    right: 4px;
-}
-
-.light.back {
-    left: 4px;
-    background: #c84c43;
-}
-
-.mirror {
+.taillight {
     position: absolute;
-    width: 18px;
-    height: 12px;
-    background: #1d1e1e;
+    left: 2px;
+    top: 47px;
+    width: 23px;
+    height: 19px;
+    background: #c74d47;
+    border: 3px solid #635a4f;
     border-radius: 50%;
-    top: 58px;
-    z-index: 8;
+    z-index: 15;
 }
 
-.mirror.left {
-    left: 61px;
-}
-
-.mirror.right {
-    right: 61px;
-}
-
-/* =========================
+/* =====================================
    ΑΝΘΡΩΠΟΙ
-   ΙΔΙΟ ΥΨΟΣ
-========================= */
+===================================== */
 
 .person {
     position: absolute;
     width: 82px;
     height: 205px;
-    bottom: 34%;
-    z-index: 30;
+    bottom: 46%;
+    z-index: 40;
     transition:
         left 1.8s ease,
-        opacity .8s ease,
-        transform 1.8s ease;
+        transform 1.2s ease,
+        opacity .8s ease;
 }
 
-/*
-   Και οι δύο έχουν ακριβώς:
-   width: 82px
-   height: 205px
-*/
+/* ΙΔΙΟ ΥΨΟΣ */
 .man {
-    left: calc(50% - 155px);
+    left: calc(53% - 175px);
 }
 
 .girl {
-    left: calc(50% + 75px);
+    left: calc(20% + 125px);
 }
 
-/* ΚΕΦΑΛΙ */
+/* =====================================
+   ΚΕΦΑΛΙ
+===================================== */
 
 .head {
     position: absolute;
+    left: 19px;
     top: 0;
-    left: 20px;
-    width: 44px;
+    width: 45px;
     height: 48px;
-    background: #e4ae83;
-    border-radius: 45% 45% 48% 48%;
+    background: #dca77e;
+    border-radius: 45%;
     z-index: 5;
 }
 
 .man .head {
-    background: #dca67e;
+    background: #dba47b;
 }
 
-.hair {
+/* καραφλός */
+.man .head::before {
+    content: "";
     position: absolute;
-    z-index: 7;
-}
-
-.man .hair {
-    display: none;
+    left: 2px;
+    top: -2px;
+    width: 41px;
+    height: 16px;
+    background: #e0aa82;
+    border-radius: 50%;
 }
 
 .beard {
     position: absolute;
-    left: 8px;
+    left: 9px;
     bottom: 2px;
-    width: 29px;
-    height: 14px;
-    background: #3e3029;
-    border-radius: 0 0 18px 18px;
+    width: 28px;
+    height: 13px;
+    background: #46362e;
+    border-radius: 0 0 15px 15px;
     opacity: .8;
 }
 
@@ -360,91 +404,83 @@ html, body {
     border-radius: 50%;
 }
 
-.eye.one {
+.eye.left {
     left: 11px;
 }
 
-.eye.two {
+.eye.right {
     right: 11px;
 }
 
-.nose {
+.girl-hair {
     position: absolute;
-    left: 20px;
-    top: 25px;
-    width: 5px;
-    height: 8px;
-    border-right: 2px solid #a26f54;
-}
-
-.girl .hair {
-    left: 13px;
-    top: -5px;
-    width: 58px;
-    height: 63px;
-    background: #e8c36d;
-    border-radius: 50% 50% 45% 45%;
+    left: 11px;
+    top: -7px;
+    width: 60px;
+    height: 68px;
+    background: #e5c16d;
+    border-radius: 50%;
     z-index: 4;
 }
 
-.girl .hair::after {
+.girl-hair::after {
     content: "";
     position: absolute;
-    right: -4px;
-    top: 28px;
+    right: -5px;
+    top: 26px;
     width: 18px;
-    height: 50px;
-    background: #e8c36d;
+    height: 53px;
+    background: #e5c16d;
     border-radius: 0 50% 50% 0;
 }
 
-/* ΣΩΜΑ */
+/* =====================================
+   ΣΩΜΑ
+===================================== */
 
 .body {
     position: absolute;
     top: 45px;
     left: 9px;
     width: 64px;
-    height: 75px;
-    border-radius: 18px 18px 8px 8px;
+    height: 73px;
+    border-radius: 17px 17px 8px 8px;
 }
-
-/* ΑΝΤΡΑΣ - ΜΑΥΡΟ ΦΟΥΤΕΡ */
 
 .man .body {
-    background: #181919;
+    background: #171819;
 }
-
-.white-shirt {
-    position: absolute;
-    top: 47px;
-    left: 24px;
-    width: 34px;
-    height: 13px;
-    background: white;
-    z-index: 6;
-    border-radius: 0 0 5px 5px;
-}
-
-/* ΚΟΠΕΛΑ - ΓΚΡΙ ΜΠΛΟΥΖΑ */
 
 .girl .body {
     background: #8b8d8d;
 }
 
-/* ΜΑΝΙΚΙΑ */
+/* λευκή μπλούζα που φαίνεται */
+.white-shirt {
+    position: absolute;
+    top: 46px;
+    left: 24px;
+    width: 34px;
+    height: 15px;
+    background: white;
+    border-radius: 0 0 5px 5px;
+    z-index: 8;
+}
+
+/* =====================================
+   ΧΕΡΙΑ
+===================================== */
 
 .arm {
     position: absolute;
     top: 53px;
     width: 18px;
-    height: 68px;
+    height: 67px;
     border-radius: 12px;
-    z-index: 2;
 }
 
 .man .arm {
-    background: #181919;
+    background: #171819;
 }
 
 .girl .arm {
@@ -453,42 +489,39 @@ html, body {
 
 .arm.left {
     left: 0;
-    transform: rotate(8deg);
+    transform: rotate(7deg);
 }
 
 .arm.right {
     right: 0;
-    transform: rotate(-8deg);
+    transform: rotate(-7deg);
 }
 
-/* ΠΑΝΤΕΛΟΝΙΑ */
+/* =====================================
+   ΠΑΝΤΕΛΟΝΙΑ
+===================================== */
 
 .pants {
     position: absolute;
     top: 116px;
-    left: 14px;
-    width: 55px;
-    height: 61px;
-    z-index: 3;
+    left: 13px;
+    width: 56px;
+    height: 62px;
 }
-
-/* ΜΑΥΡΟ ΠΑΝΤΕΛΟΝΙ */
 
 .man .pants {
     background: #171819;
 }
 
-/* ΤΖΙΝ */
-
 .girl .pants {
-    background: #3f6690;
+    background: #41688f;
 }
 
 .leg {
     position: absolute;
     top: 0;
     width: 25px;
-    height: 58px;
+    height: 59px;
     border-radius: 0 0 7px 7px;
 }
 
@@ -497,7 +530,7 @@ html, body {
 }
 
 .girl .leg {
-    background: #3f6690;
+    background: #41688f;
 }
 
 .leg.left {
@@ -508,106 +541,160 @@ html, body {
     right: 1px;
 }
 
-/* ΠΑΠΟΥΤΣΙΑ */
+/* =====================================
+   ΛΕΥΚΑ ΠΑΠΟΥΤΣΙΑ
+===================================== */
 
 .shoe {
     position: absolute;
     top: 171px;
-    width: 35px;
+    width: 36px;
     height: 18px;
     background: white;
-    border-radius: 10px 15px 7px 7px;
-    border: 2px solid #ddd;
-    z-index: 5;
+    border: 2px solid #d8d8d8;
+    border-radius: 11px 16px 7px 7px;
+    z-index: 10;
 }
 
 .shoe.left {
-    left: 3px;
+    left: 2px;
 }
 
 .shoe.right {
-    right: 3px;
+    right: 2px;
 }
 
-/* =========================
+/* =====================================
+   ΚΙΝΗΣΕΙΣ ΑΝΤΡΑ
+===================================== */
+
+/* βγαίνει από το αυτοκίνητο και πατάει στον δρόμο */
+.man.step-out {
+    left: calc(53% - 230px);
+}
+
+/* περπατάει προς την κοπέλα */
+.man.go-girl {
+    left: calc(20% + 145px);
+}
+
+/* πηγαίνει για το φιλί */
+.man.kiss-position {
+    left: calc(20% + 190px);
+}
+
+/* μπαίνει στο αμάξι */
+.man.enter-car {
+    left: calc(53% - 185px);
+    transform: translateY(15px) scale(.8);
+    opacity: 0;
+}
+
+/* =====================================
+   ΚΙΝΗΣΕΙΣ ΚΟΠΕΛΑΣ
+===================================== */
+
+/* βγαίνει από την πράσινη πόρτα */
+.girl.leave-door {
+    left: calc(20% + 125px);
+}
+
+/* περπατάει προς τον άντρα */
+.girl.go-man {
+    left: calc(20% + 195px);
+}
+
+/* θέση για φιλί */
+.girl.kiss-position {
+    left: calc(20% + 220px);
+}
+
+/* μπαίνει στο αμάξι */
+.girl.enter-car {
+    left: calc(53% - 130px);
+    transform: translateY(15px) scale(.8);
+    opacity: 0;
+}
+
+/* =====================================
    ΗΛΙΟΤΡΟΠΙΑ
-========================= */
+===================================== */
 
 .flowers {
     position: absolute;
-    width: 48px;
+    left: calc(53% - 205px);
+    bottom: 50%;
+    width: 55px;
     height: 75px;
-    left: calc(50% - 87px);
-    bottom: 42%;
-    z-index: 40;
+    z-index: 55;
     opacity: 0;
     transform: scale(.7);
     transition:
         left 1.5s ease,
-        bottom 1.5s ease,
-        opacity .5s ease,
-        transform .5s ease;
+        opacity .6s ease,
+        transform .6s ease;
 }
 
-.flowers.show {
+.flowers.visible {
     opacity: 1;
     transform: scale(1);
 }
 
-.flowers.give {
-    left: calc(50% + 48px);
+.flowers.to-girl {
+    left: calc(20% + 185px);
 }
 
 .stem {
     position: absolute;
-    width: 5px;
-    height: 54px;
-    background: #4f813f;
     bottom: 0;
-    left: 22px;
-    transform: rotate(-7deg);
+    left: 25px;
+    width: 5px;
+    height: 52px;
+    background: #4b803e;
 }
 
 .stem.two {
-    left: 31px;
+    left: 34px;
     transform: rotate(8deg);
 }
 
 .sunflower {
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     background:
         radial-gradient(
             circle,
-            #6b421e 0 25%,
-            #f2bf24 27% 48%,
-            #f4ca32 50% 100%
+            #68431f 0 25%,
+            #f0bd21 27% 48%,
+            #f5cb32 50% 100%
         );
 }
 
 .sunflower.one {
-    left: 4px;
+    left: 3px;
     top: 0;
 }
 
 .sunflower.two {
-    left: 20px;
-    top: 9px;
+    left: 22px;
+    top: 10px;
     transform: scale(.9);
 }
 
-/* =========================
+/* =====================================
    ΚΑΡΔΙΕΣ
-========================= */
+===================================== */
 
 .hearts {
     position: absolute;
-    left: 50%;
-    bottom: 46%;
+    left: 53%;
+    bottom: 52%;
+    width: 150px;
+    height: 120px;
     transform: translateX(-50%);
-    z-index: 60;
+    z-index: 80;
     opacity: 0;
     pointer-events: none;
 }
@@ -618,109 +705,77 @@ html, body {
 
 .heart {
     position: absolute;
-    font-size: 30px;
-    animation: floatHeart 2.8s ease-in-out infinite;
+    font-size: 32px;
+    animation: hearts 2.7s infinite ease-in-out;
 }
 
 .heart.one {
-    left: -55px;
-    animation-delay: 0s;
+    left: 10px;
 }
 
 .heart.two {
-    left: 5px;
-    font-size: 38px;
-    animation-delay: .4s;
+    left: 60px;
+    font-size: 40px;
+    animation-delay: .35s;
 }
 
 .heart.three {
-    left: 65px;
-    font-size: 25px;
-    animation-delay: .8s;
+    left: 110px;
+    font-size: 27px;
+    animation-delay: .7s;
 }
 
-@keyframes floatHeart {
+@keyframes hearts {
     0% {
-        transform: translateY(15px) scale(.7);
         opacity: 0;
+        transform: translateY(20px) scale(.6);
     }
 
-    20% {
-        opacity: 1;
-    }
-
-    70% {
+    25% {
         opacity: 1;
     }
 
     100% {
-        transform: translateY(-90px) scale(1.15);
         opacity: 0;
+        transform: translateY(-85px) scale(1.15);
     }
 }
 
-/* =========================
-   ΚΙΝΗΣΕΙΣ
-========================= */
-
-.man.exit-car {
-    left: calc(50% - 155px);
-}
-
-.girl.arrive {
-    left: calc(50% + 10px);
-}
-
-.man.move-kiss {
-    left: calc(50% - 42px);
-}
-
-.girl.move-kiss {
-    left: calc(50% + 25px);
-}
-
-.man.enter-car {
-    left: calc(50% - 85px);
-    transform: translateY(35px) scale(.75);
-    opacity: 0;
-}
-
-.girl.enter-car {
-    left: calc(50% - 35px);
-    transform: translateY(35px) scale(.75);
-    opacity: 0;
-}
+/* =====================================
+   ΦΙΛΙ
+===================================== */
 
 .kiss {
-    transform: translateX(12px);
+    transform: translateX(8px);
 }
 
-/* =========================
-   ΚΑΜΕΡΑ
-========================= */
-
-.fade {
+.kiss::after {
+    content: "❤️";
     position: absolute;
-    inset: 0;
-    background: black;
-    z-index: 100;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 1s ease;
+    left: 25px;
+    top: -42px;
+    font-size: 23px;
+    animation: kissHeart 1.5s infinite;
 }
 
-.fade.show {
-    opacity: .25;
+@keyframes kissHeart {
+    0%, 100% {
+        transform: scale(.8);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
 }
 
-/* =========================
+/* =====================================
    RESPONSIVE
-========================= */
+===================================== */
 
 @media (max-width: 700px) {
 
     .car {
-        transform: translateX(-50%) scale(.75);
+        transform: translateX(-50%) scale(.72);
         transform-origin: bottom center;
     }
 
@@ -729,17 +784,23 @@ html, body {
         transform-origin: bottom center;
     }
 
-    .man {
-        left: calc(50% - 125px);
+    .entrance {
+        left: 8%;
+        transform: scale(.85);
+        transform-origin: bottom center;
     }
 
-    .girl {
-        left: calc(50% + 55px);
+    .building.left {
+        width: 36%;
     }
 
-    .building .windows {
-        transform: scale(.8);
-        transform-origin: top left;
+    .building.middle {
+        left: 33%;
+        width: 34%;
+    }
+
+    .building.right {
+        width: 37%;
     }
 }
 </style>
@@ -749,98 +810,107 @@ html, body {
 
 <div class="scene">
 
-    <!-- ΠΟΛΥΚΑΤΟΙΚΙΕΣ -->
-    <div class="buildings">
+    <!-- =================================
+         ΠΟΛΥΚΑΤΟΙΚΙΑ 1
+    ================================== -->
 
-        <div class="building one">
-            <div class="windows">
-                <div class="window lit"></div>
-                <div class="window"></div>
-                <div class="window lit"></div>
-                <div class="window"></div>
+    <div class="building left">
+        <div class="window lit b1w1"></div>
+        <div class="window b1w2"></div>
+        <div class="window lit b1w3"></div>
 
-                <div class="window"></div>
-                <div class="window lit"></div>
-                <div class="window"></div>
-                <div class="window lit"></div>
+        <div class="window b1w4"></div>
+        <div class="window lit b1w5"></div>
+        <div class="window b1w6"></div>
 
-                <div class="window lit"></div>
-                <div class="window"></div>
-                <div class="window lit"></div>
-                <div class="window"></div>
-            </div>
-        </div>
+        <div class="window lit b1w7"></div>
+        <div class="window b1w8"></div>
+        <div class="window lit b1w9"></div>
+    </div>
 
-        <div class="building two">
-            <div class="windows">
-                <div class="window"></div>
-                <div class="window lit"></div>
-                <div class="window"></div>
-                <div class="window lit"></div>
+    <!-- =================================
+         ΠΟΛΥΚΑΤΟΙΚΙΑ 2
+    ================================== -->
 
-                <div class="window lit"></div>
-                <div class="window"></div>
-                <div class="window lit"></div>
-                <div class="window"></div>
-            </div>
-        </div>
+    <div class="building middle">
+        <div class="window b2w1"></div>
+        <div class="window lit b2w2"></div>
+        <div class="window b2w3"></div>
 
-        <div class="building three">
-            <div class="windows">
-                <div class="window lit"></div>
-                <div class="window"></div>
-                <div class="window lit"></div>
-                <div class="window"></div>
+        <div class="window lit b2w4"></div>
+        <div class="window b2w5"></div>
+        <div class="window lit b2w6"></div>
 
-                <div class="window"></div>
-                <div class="window lit"></div>
-                <div class="window"></div>
-                <div class="window lit"></div>
+        <div class="window b2w7"></div>
+        <div class="window lit b2w8"></div>
+        <div class="window b2w9"></div>
+    </div>
 
-                <div class="window lit"></div>
-                <div class="window"></div>
-                <div class="window lit"></div>
-                <div class="window"></div>
-            </div>
-        </div>
+    <!-- =================================
+         ΠΟΛΥΚΑΤΟΙΚΙΑ 3
+    ================================== -->
 
-        <div class="building four">
-            <div class="windows">
-                <div class="window"></div>
-                <div class="window lit"></div>
-                <div class="window"></div>
-                <div class="window lit"></div>
+    <div class="building right">
+        <div class="window lit b3w1"></div>
+        <div class="window b3w2"></div>
+        <div class="window lit b3w3"></div>
 
-                <div class="window lit"></div>
-                <div class="window"></div>
-                <div class="window lit"></div>
-                <div class="window"></div>
-            </div>
+        <div class="window b3w4"></div>
+        <div class="window lit b3w5"></div>
+        <div class="window b3w6"></div>
+
+        <div class="window lit b3w7"></div>
+        <div class="window b3w8"></div>
+        <div class="window lit b3w9"></div>
+    </div>
+
+
+    <!-- =================================
+         ΠΡΑΣΙΝΗ ΠΟΡΤΑ
+    ================================== -->
+
+    <div class="entrance">
+
+        <div class="green-door" id="door">
+            <div class="door-window"></div>
+            <div class="door-handle"></div>
         </div>
 
     </div>
 
-    <!-- ΠΕΖΟΔΡΟΜΙΟ -->
+
+    <!-- =================================
+         ΠΕΖΟΔΡΟΜΙΟ
+    ================================== -->
+
     <div class="sidewalk"></div>
 
-    <!-- ΔΡΟΜΟΣ -->
+
+    <!-- =================================
+         ΔΡΟΜΟΣ
+    ================================== -->
+
     <div class="road">
         <div class="road-line"></div>
     </div>
 
-    <!-- ΑΝΤΡΑΣ -->
+
+    <!-- =================================
+         ΑΝΤΡΑΣ
+    ================================== -->
+
     <div class="person man" id="man">
 
         <div class="head">
-            <div class="eye one"></div>
-            <div class="eye two"></div>
-            <div class="nose"></div>
+            <div class="eye left"></div>
+            <div class="eye right"></div>
             <div class="beard"></div>
         </div>
 
+        <!-- ΜΑΥΡΟ ΦΟΥΤΕΡ -->
         <div class="body"></div>
 
-        <!-- ΛΕΥΚΗ ΜΠΛΟΥΖΑ ΠΟΥ ΦΑΙΝΕΤΑΙ ΚΑΤΩ ΑΠΟ ΤΟ ΦΟΥΤΕΡ -->
+        <!-- ΛΕΥΚΗ ΜΠΛΟΥΖΑ -->
         <div class="white-shirt"></div>
 
         <div class="arm left"></div>
@@ -858,15 +928,18 @@ html, body {
 
     </div>
 
-    <!-- ΚΟΠΕΛΑ -->
+
+    <!-- =================================
+         ΚΟΠΕΛΑ
+    ================================== -->
+
     <div class="person girl" id="girl">
 
-        <div class="hair"></div>
+        <div class="girl-hair"></div>
 
         <div class="head">
-            <div class="eye one"></div>
-            <div class="eye two"></div>
-            <div class="nose"></div>
+            <div class="eye left"></div>
+            <div class="eye right"></div>
         </div>
 
         <!-- ΓΚΡΙ ΜΠΛΟΥΖΑ -->
@@ -887,7 +960,11 @@ html, body {
 
     </div>
 
-    <!-- ΗΛΙΟΤΡΟΠΙΑ -->
+
+    <!-- =================================
+         ΗΛΙΟΤΡΟΠΙΑ
+    ================================== -->
+
     <div class="flowers" id="flowers">
 
         <div class="stem"></div>
@@ -898,116 +975,174 @@ html, body {
 
     </div>
 
-    <!-- MINI COOPER -->
+
+    <!-- =================================
+         MINI COOPER
+    ================================== -->
+
     <div class="car" id="car">
 
         <div class="car-roof"></div>
 
-        <div class="window-back"></div>
-        <div class="window-front"></div>
+        <div class="car-window back"></div>
+        <div class="car-window front"></div>
+
         <div class="window-divider"></div>
 
         <div class="car-body"></div>
 
-        <div class="light front"></div>
-        <div class="light back"></div>
-
-        <div class="mirror left"></div>
-        <div class="mirror right"></div>
+        <div class="headlight"></div>
+        <div class="taillight"></div>
 
         <div class="wheel left"></div>
         <div class="wheel right"></div>
 
     </div>
 
-    <!-- ΚΑΡΔΙΕΣ -->
+
+    <!-- =================================
+         ΚΑΡΔΙΕΣ
+    ================================== -->
+
     <div class="hearts" id="hearts">
+
         <div class="heart one">❤️</div>
         <div class="heart two">❤️</div>
         <div class="heart three">💕</div>
-    </div>
 
-    <div class="fade" id="fade"></div>
+    </div>
 
 </div>
 
+
 <script>
 
+const door = document.getElementById("door");
 const man = document.getElementById("man");
 const girl = document.getElementById("girl");
 const flowers = document.getElementById("flowers");
-const hearts = document.getElementById("hearts");
 const car = document.getElementById("car");
-const fade = document.getElementById("fade");
+const hearts = document.getElementById("hearts");
+
 
 /*
-==================================================
+====================================================
 ΣΚΗΝΗ 1
-Ο άντρας βγαίνει από το Mini
-==================================================
+Ο άντρας βγαίνει από το Mini.
+====================================================
 */
 
 setTimeout(() => {
-    man.classList.add("exit-car");
-}, 500);
+
+    man.classList.add("step-out");
+
+}, 800);
 
 
 /*
-==================================================
+====================================================
 ΣΚΗΝΗ 2
-Η κοπέλα πλησιάζει
-==================================================
+Ανοίγει η πράσινη πόρτα.
+====================================================
 */
 
 setTimeout(() => {
-    girl.classList.add("arrive");
+
+    door.classList.add("open");
+
 }, 2200);
 
 
 /*
-==================================================
+====================================================
 ΣΚΗΝΗ 3
-Εμφανίζονται τα ηλιοτρόπια
-==================================================
+Η κοπέλα βγαίνει από την πολυκατοικία.
+====================================================
 */
 
 setTimeout(() => {
-    flowers.classList.add("show");
-}, 4000);
+
+    girl.classList.add("leave-door");
+
+}, 2700);
 
 
 /*
-==================================================
+====================================================
 ΣΚΗΝΗ 4
-Ο άντρας δίνει τα λουλούδια στην κοπέλα
-==================================================
+Η κοπέλα περπατάει προς τον άντρα.
+====================================================
 */
 
 setTimeout(() => {
-    flowers.classList.add("give");
-}, 5000);
+
+    girl.classList.add("go-man");
+
+}, 4500);
 
 
 /*
-==================================================
+====================================================
 ΣΚΗΝΗ 5
-Πλησιάζουν για φιλί
-==================================================
+Ο άντρας περπατάει προς την κοπέλα.
+====================================================
 */
 
 setTimeout(() => {
 
-    man.classList.add("move-kiss");
-    girl.classList.add("move-kiss");
+    man.classList.add("go-girl");
 
-}, 6500);
+}, 4700);
 
 
 /*
-==================================================
+====================================================
 ΣΚΗΝΗ 6
-Φιλί
-==================================================
+Εμφανίζονται τα δύο ηλιοτρόπια.
+====================================================
+*/
+
+setTimeout(() => {
+
+    flowers.classList.add("visible");
+
+}, 6000);
+
+
+/*
+====================================================
+ΣΚΗΝΗ 7
+Ο άντρας δίνει τα λουλούδια.
+====================================================
+*/
+
+setTimeout(() => {
+
+    flowers.classList.add("to-girl");
+
+}, 6800);
+
+
+/*
+====================================================
+ΣΚΗΝΗ 8
+Πλησιάζουν για φιλί.
+====================================================
+*/
+
+setTimeout(() => {
+
+    man.classList.add("kiss-position");
+    girl.classList.add("kiss-position");
+
+}, 7900);
+
+
+/*
+====================================================
+ΣΚΗΝΗ 9
+ΦΙΛΙ ❤️
+====================================================
 */
 
 setTimeout(() => {
@@ -1015,28 +1150,28 @@ setTimeout(() => {
     man.classList.add("kiss");
     girl.classList.add("kiss");
 
-}, 8000);
+}, 9000);
 
 
 /*
-==================================================
-ΣΚΗΝΗ 7
-Καρδιές εμφανίζονται
-==================================================
+====================================================
+ΣΚΗΝΗ 10
+Καρδιές πάνω από το Mini.
+====================================================
 */
 
 setTimeout(() => {
 
     hearts.classList.add("show");
 
-}, 8500);
+}, 9300);
 
 
 /*
-==================================================
-ΣΚΗΝΗ 8
-Μπαίνουν στο αυτοκίνητο
-==================================================
+====================================================
+ΣΚΗΝΗ 11
+Μπαίνουν στο αυτοκίνητο.
+====================================================
 */
 
 setTimeout(() => {
@@ -1046,35 +1181,21 @@ setTimeout(() => {
 
     flowers.style.opacity = "0";
 
-}, 10000);
+}, 10400);
 
 
 /*
-==================================================
-ΣΚΗΝΗ 9
-Το Mini φεύγει
-==================================================
+====================================================
+ΣΚΗΝΗ 12
+Το Mini φεύγει.
+====================================================
 */
 
 setTimeout(() => {
 
-    car.classList.add("drive-away");
+    car.classList.add("drive");
 
-}, 12000);
-
-
-/*
-==================================================
-ΣΚΗΝΗ 10
-Μικρό fade στο τέλος
-==================================================
-*/
-
-setTimeout(() => {
-
-    fade.classList.add("show");
-
-}, 14500);
+}, 12100);
 
 </script>
 
