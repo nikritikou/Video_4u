@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
+    background:#20293d;
+}
+
+.scene{
+    width:100vw;
+    height:100vh;
+    position:relative;
+    overflow:hidden;
+
+    background:linear-gradient(
+        to bottom,
+        #18243c 0%,
+        #667995 62%,
+        #66704d 62%,
+        #303b27 100%
+    );
+}
+
+/* =====================================================
+   ΑΥΤΟΚΙΝΗΤΟ - ΜΠΕΖ MINI
+===================================================== */
+
+.car{
+    position:absolute;
+    width:390px;
+    height:155px;
+
+    left:50%;
+    bottom:18%;
+
+    transform:translateX(-50%);
+
+    z-index:3;
+}
+
+.car-body{
+    position:absolute;
+    left:0;
+    bottom:25px;
+
+    width:390px;
+    height:85px;
+
+    background:#cdbb92;
+
+    border-radius:
+        75px
+        75px
+        25px
+        25px;
+
+    box-shadow:
+        inset 0 -12px rgba(0,0,0,.08),
+        0 12px 20px rgba(0,0,0,.25);
+}
+
+.car-hood{
+    position:absolute;
+    left:0;
+    bottom:25px;
+
+    width:110px;
+    height:60px;
+
+    background:#d5c59e;
+
+    border-radius:55px 15px 10px 30px;
+}
+
+.car-roof{
+    position:absolute;
+    left:105px;
+    top:5px;
+
+    width:190px;
+    height:75px;
+
+    background:#cdbb92;
+
+    border-radius:75px 75px 10px 10px;
+}
+
+.window{
+    position:absolute;
+    top:18px;
+    height:55px;
+
+    background:#1b2735;
+    border:4px solid #b3a27c;
+}
+
+.window-left{
+    left:125px;
+    width:76px;
+    border-radius:45px 5px 5px 5px;
+}
+
+.window-right{
+    left:205px;
+    width:70px;
+    border-radius:5px 45px 5px 5px;
+}
+
+.window-divider{
+    position:absolute;
+    top:20px;
+    left:201px;
+
+    width:5px;
+    height:50px;
+
+    background:#b3a27c;
+    z-index:2;
+}
+
+.headlight{
+    position:absolute;
+    bottom:55px;
+
+    width:28px;
+    height:28px;
+
+    border-radius:50%;
+
+    background:#fff1a8;
+    border:4px solid #b6a67e;
+
+    box-shadow:
+        0 0 12px rgba(255,240,150,.5);
+}
+
+.headlight.left{
+    left:18px;
+}
+
+.headlight.right{
+    right:18px;
+}
+
+.bumper{
+    position:absolute;
+    bottom:18px;
+
+    width:35px;
+    height:10px;
+
+    background:#888;
+    border-radius:5px;
+}
+
+.bumper.left{
+    left:5px;
+}
+
+.bumper.right{
+    right:5px;
+}
+
+.wheel{
+    position:absolute;
+    bottom:0;
+
+    width:65px;
+    height:65px;
+
+    border-radius:50%;
+
+    background:#171717;
+    border:8px solid #333;
+
+    z-index:5;
+}
+
+.wheel::after{
+    content:"";
+
+    position:absolute;
+
+    width:25px;
+    height:25px;
+
+    left:12px;
+    top:12px;
+
+    border-radius:50%;
+
+    background:#aaa;
+}
+
+.wheel.left{
+    left:55px;
+}
+
+.wheel.right{
+    right:55px;
+}
+
+.mirror{
+    position:absolute;
+
+    top:45px;
+
+    width:22px;
+    height:14px;
+
+    background:#222;
+
+    border-radius:8px;
+}
+
+.mirror.left{
+    left:95px;
+}
+
+.mirror.right{
+    right:95px;
+}
+
+
+/* =====================================================
+   ΑΝΤΡΑΣ
+===================================================== */
+
+.man{
+    position:absolute;
+
+    width:85px;
+    height:210px;
+
+    left:53%;
+    bottom:27%;
+
+    transform:scale(.55);
+
+    transform-origin:bottom center;
+
+    z-index:6;
+
+    animation:
+        manEnterCar 3s ease-in-out forwards;
+}
+
+/* ΦΑΛΑΚΡΟ ΚΕΦΑΛΙ */
+
+.man-head{
+    position:absolute;
+
+    left:15px;
+    top:0;
+
+    width:55px;
+    height:62px;
+
+    border-radius:50%;
+
+    background:#c88b66;
+}
+
+.man-head::before,
+.man-head::after{
+    content:"";
+
+    position:absolute;
+    top:24px;
+
+    width:12px;
+    height:18px;
+
+    border-radius:50%;
+
+    background:#b97958;
+}
+
+.man-head::before{
+    left:-6px;
+}
+
+.man-head::after{
+    right:-6px;
+}
+
+/* μάτια */
+
+.man-eyes{
+    position:absolute;
+
+    left:15px;
+    top:27px;
+
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:#222;
+
+    box-shadow:20px 0 #222;
+}
+
+/* ΛΙΓΑ ΓΕΝΙΑ */
+
+.beard{
+    position:absolute;
+
+    left:12px;
+    top:38px;
+
+    width:34px;
+    height:18px;
+
+    background:#44362e;
+
+    border-radius:
+        5px
+        5px
+        14px
+        14px;
+
+    opacity:.82;
+}
+
+/* λαιμός */
+
+.man-neck{
+    position:absolute;
+
+    left:32px;
+    top:55px;
+
+    width:20px;
+    height:20px;
+
+    background:#b97958;
+}
+
+/* ΛΕΥΚΗ ΜΠΛΟΥΖΑ */
+
+.white-shirt{
+    position:absolute;
+
+    left:13px;
+    top:69px;
+
+    width:59px;
+    height:22px;
+
+    background:#fff;
+
+    border-radius:5px;
+
+    z-index:1;
+}
+
+/* ΜΑΥΡΟ ΦΟΥΤΕΡ */
+
+.man-body{
+    position:absolute;
+
+    left:8px;
+    top:72px;
+
+    width:69px;
+    height:90px;
+
+    background:#111;
+
+    border-radius:
+        18px
+        18px
+        8px
+        8px;
+
+    z-index:2;
+}
+
+/* λευκή μπλούζα που φαίνεται κάτω */
+
+.white-bottom{
+    position:absolute;
+
+    left:14px;
+    top:151px;
+
+    width:57px;
+    height:13px;
+
+    background:white;
+
+    border-radius:0 0 8px 8px;
+
+    z-index:1;
+}
+
+/* χέρια άντρα */
+
+.man-arm{
+    position:absolute;
+
+    top:76px;
+
+    width:17px;
+    height:75px;
+
+    background:#111;
+
+    border-radius:15px;
+
+    transform-origin:top center;
+
+    z-index:3;
+}
+
+.man-arm-left{
+    left:0;
+    transform:rotate(12deg);
+}
+
+.man-arm-right{
+    right:-2px;
+
+    transform:rotate(-20deg);
+
+    animation:
+        giveSunflowers 1.5s ease-in-out 8s forwards;
+}
+
+.man-hand{
+    position:absolute;
+
+    left:-2px;
+    bottom:-8px;
+
+    width:20px;
+    height:21px;
+
+    border-radius:50%;
+
+    background:#c88b66;
+}
+
+
+/* =====================================================
+   ΔΥΟ ΚΙΤΡΙΝΑ ΗΛΙΟΤΡΟΠΙΑ
+===================================================== */
+
+.flowers{
+    position:absolute;
+
+    right:-70px;
+    top:90px;
+
+    width:100px;
+    height:130px;
+
+    opacity:0;
+
+    transform:scale(.4);
+
+    animation:
+        flowersAppear 1s ease 7s forwards,
+        flowersForward 2s ease-in-out 8s forwards;
+
+    z-index:10;
+}
+
+.flower{
+    position:absolute;
+
+    width:50px;
+    height:120px;
+}
+
+.flower.one{
+    left:0;
+    top:0;
+}
+
+.flower.two{
+    left:35px;
+    top:8px;
+}
+
+/* κοτσάνι */
+
+.stem{
+    position:absolute;
+
+    left:22px;
+    top:35px;
+
+    width:6px;
+    height:85px;
+
+    background:#3d8a42;
+
+    border-radius:5px;
+}
+
+/* φύλλο */
+
+.leaf{
+    position:absolute;
+
+    left:0;
+    top:70px;
+
+    width:28px;
+    height:15px;
+
+    background:#4b984b;
+
+    border-radius:100% 0;
+
+    transform:rotate(-20deg);
+}
+
+/* κεφάλι ηλιοτρόπιου */
+
+.sun{
+    position:absolute;
+
+    left:1px;
+    top:0;
+
+    width:45px;
+    height:45px;
+}
+
+/* ΚΙΤΡΙΝΑ ΠΕΤΑΛΑ */
+
+.petal{
+    position:absolute;
+
+    width:20px;
+    height:20px;
+
+    border-radius:50%;
+
+    background:#ffd21f;
+}
+
+.petal1{
+    left:12px;
+    top:0;
+}
+
+.petal2{
+    left:0;
+    top:13px;
+}
+
+.petal3{
+    left:24px;
+    top:13px;
+}
+
+.petal4{
+    left:12px;
+    top:25px;
+}
+
+/* κέντρο */
+
+.sun-center{
+    position:absolute;
+
+    left:12px;
+    top:12px;
+
+    width:21px;
+    height:21px;
+
+    border-radius:50%;
+
+    background:#71431c;
+
+    z-index:2;
+}
+
+@keyframes flowersAppear{
+    from{
+        opacity:0;
+        transform:scale(.2);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(.7);
+    }
+}
+
+@keyframes flowersForward{
+    from{
+        transform:
+            scale(.7)
+            translateX(0);
+    }
+
+    to{
+        transform:
+            scale(1.1)
+            translateX(45px);
+    }
+}
+
+
+/* =====================================================
+   ΚΟΠΕΛΑ
+===================================================== */
+
+.girl{
+    position:absolute;
+
+    left:67%;
+    bottom:20%;
+
+    width:95px;
+    height:260px;
+
+    opacity:0;
+
+    transform:
+        translateX(180px)
+        scale(.9);
+
+    z-index:7;
+
+    animation:
+        girlWalkToCar 4s ease-in-out 4s forwards,
+        girlMoveForKiss 1.5s ease-in-out 10.5s forwards;
+}
+
+/* ξανθά μαλλιά */
+
+.girl-hair{
+    position:absolute;
+
+    left:10px;
+    top:-8px;
+
+    width:75px;
+    height:90px;
+
+    background:#f2cf72;
+
+    border-radius:50%;
+}
+
+/* κεφάλι */
+
+.girl-head{
+    position:absolute;
+
+    left:18px;
+    top:2px;
+
+    width:59px;
+    height:65px;
+
+    background:#f1bd91;
+
+    border-radius:50%;
+
+    z-index:1;
+}
+
+/* μαλλιά μπροστά */
+
+.girl-fringe{
+    position:absolute;
+
+    left:18px;
+    top:-3px;
+
+    width:59px;
+    height:25px;
+
+    background:#f2cf72;
+
+    border-radius:50%;
+
+    z-index:2;
+}
+
+/* μάτια */
+
+.girl-eyes{
+    position:absolute;
+
+    left:16px;
+    top:29px;
+
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:#333;
+
+    box-shadow:21px 0 #333;
+
+    z-index:3;
+}
+
+/* λαιμός */
+
+.girl-neck{
+    position:absolute;
+
+    left:38px;
+    top:58px;
+
+    width:21px;
+    height:23px;
+
+    background:#edb68a;
+}
+
+/* ΓΚΡΙ ΦΟΥΤΕΡ */
+
+.girl-body{
+    position:absolute;
+
+    left:10px;
+    top:72px;
+
+    width:75px;
+    height:100px;
+
+    background:#929292;
+
+    border-radius:
+        18px
+        18px
+        8px
+        8px;
+}
+
+/* χέρια κοπέλας */
+
+.girl-arm{
+    position:absolute;
+
+    top:78px;
+
+    width:18px;
+    height:82px;
+
+    background:#929292;
+
+    border-radius:15px;
+
+    transform-origin:top center;
+}
+
+.girl-arm-left{
+    left:2px;
+
+    transform:rotate(12deg);
+
+    animation:
+        enterCarArm 2s ease-in-out 7s forwards;
+}
+
+.girl-arm-right{
+    right:2px;
+
+    transform:rotate(-12deg);
+
+    animation:
+        receiveFlowers 2s ease-in-out 8s forwards;
+}
+
+/* ΤΖΙΝ */
+
+.girl-leg{
+    position:absolute;
+
+    top:165px;
+
+    width:25px;
+    height:95px;
+
+    background:#315d91;
+
+    border-radius:8px;
+}
+
+.girl-leg-left{
+    left:18px;
+}
+
+.girl-leg-right{
+    right:18px;
+}
+
+
+/* =====================================================
+   ΦΙΛΙ
+===================================================== */
+
+/*
+   Μετά την παράδοση των λουλουδιών,
+   η κοπέλα πλησιάζει τον άντρα.
+*/
+
+@keyframes girlMoveForKiss{
+
+    0%{
+        left:67%;
+        transform:
+            translateX(0)
+            scale(.82);
+    }
+
+    100%{
+        left:60%;
+        transform:
+            translateX(-20px)
+            scale(.82);
+    }
+}
+
+/* μικρή κίνηση άντρα προς την κοπέλα */
+
+.man{
+    animation:
+        manEnterCar 3s ease-in-out forwards,
+        manForKiss 1.5s ease-in-out 10.5s forwards;
+}
+
+@keyframes manForKiss{
+
+    0%{
+        transform:scale(.55);
+    }
+
+    100%{
+        transform:
+            scale(.55)
+            translateX(8px);
+    }
+}
+
+/*
+   Μικρό "φιλί":
+   τα δύο κεφάλια πλησιάζουν και
+   παραμένουν κοντά για λίγο.
+*/
+
+.girl-head{
+    animation:
+        kissHead 1.2s ease-in-out 11s forwards;
+}
+
+.man-head{
+    animation:
+        kissManHead 1.2s ease-in-out 11s forwards;
+}
+
+@keyframes kissHead{
+
+    0%{
+        transform:translateX(0);
+    }
+
+    100%{
+        transform:translateX(-13px);
+    }
+}
+
+@keyframes kissManHead{
+
+    0%{
+        transform:translateX(0);
+    }
+
+    100%{
+        transform:translateX(13px);
+    }
+}
+
+
+/* =====================================================
+   ΚΙΝΗΣΕΙΣ
+===================================================== */
+
+@keyframes manEnterCar{
+
+    0%{
+        left:25%;
+        bottom:12%;
+        transform:scale(.25);
+    }
+
+    30%{
+        left:38%;
+        bottom:15%;
+        transform:scale(.45);
+    }
+
+    60%{
+        left:47%;
+        bottom:25%;
+        transform:scale(.6);
+    }
+
+    100%{
+        left:53%;
+        bottom:27%;
+        transform:scale(.55);
+    }
+}
+
+@keyframes girlWalkToCar{
+
+    0%{
+        opacity:0;
+
+        transform:
+            translateX(180px)
+            scale(.9);
+    }
+
+    25%{
+        opacity:1;
+
+        transform:
+            translateX(100px)
+            scale(.9);
+    }
+
+    60%{
+        opacity:1;
+
+        transform:
+            translateX(45px)
+            scale(.9);
+    }
+
+    100%{
+        opacity:1;
+
+        transform:
+            translateX(0)
+            scale(.82);
+    }
+}
+
+@keyframes receiveFlowers{
+
+    0%{
+        transform:rotate(-12deg);
+    }
+
+    100%{
+        transform:
+            rotate(-48deg)
+            translate(-12px,-12px);
+    }
+}
+
+@keyframes enterCarArm{
+
+    from{
+        transform:rotate(12deg);
+    }
+
+    to{
+        transform:
+            rotate(-25deg)
+            translate(-8px,-5px);
+    }
+}
+
+@keyframes giveSunflowers{
+
+    0%{
+        transform:rotate(-20deg);
+    }
+
+    100%{
+        transform:
+            rotate(-60deg)
+            translateY(-12px);
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="scene">
+
+    <!-- ΑΥΤΟΚΙΝΗΤΟ -->
+
+    <div class="car">
+
+        <div class="car-roof"></div>
+
+        <div class="window window-left"></div>
+        <div class="window window-right"></div>
+
+        <div class="window-divider"></div>
+
+        <div class="car-body"></div>
+
+        <div class="car-hood"></div>
+
+        <div class="headlight left"></div>
+        <div class="headlight right"></div>
+
+        <div class="bumper left"></div>
+        <div class="bumper right"></div>
+
+        <div class="mirror left"></div>
+        <div class="mirror right"></div>
+
+        <div class="wheel left"></div>
+        <div class="wheel right"></div>
+
+    </div>
+
+
+    <!-- ΑΝΤΡΑΣ -->
+
+    <div class="man">
+
+        <div class="man-head">
+            <div class="man-eyes"></div>
+            <div class="beard"></div>
+        </div>
+
+        <div class="man-neck"></div>
+
+        <!-- Λευκή μπλούζα -->
+        <div class="white-shirt"></div>
+
+        <!-- Μαύρο φούτερ -->
+        <div class="man-body"></div>
+
+        <!-- Λευκή μπλούζα που φαίνεται από κάτω -->
+        <div class="white-bottom"></div>
+
+        <div class="man-arm man-arm-left">
+            <div class="man-hand"></div>
+        </div>
+
+        <div class="man-arm man-arm-right">
+            <div class="man-hand"></div>
+        </div>
+
+
+        <!-- ΔΥΟ ΚΙΤΡΙΝΑ ΗΛΙΟΤΡΟΠΙΑ -->
+
+        <div class="flowers">
+
+            <div class="flower one">
+
+                <div class="sun">
+
+                    <div class="petal petal1"></div>
+                    <div class="petal petal2"></div>
+                    <div class="petal petal3"></div>
+                    <div class="petal petal4"></div>
+
+                    <div class="sun-center"></div>
+
+                </div>
+
+                <div class="stem"></div>
+                <div class="leaf"></div>
+
+            </div>
+
+
+            <div class="flower two">
+
+                <div class="sun">
+
+                    <div class="petal petal1"></div>
+                    <div class="petal petal2"></div>
+                    <div class="petal petal3"></div>
+                    <div class="petal petal4"></div>
+
+                    <div class="sun-center"></div>
+
+                </div>
+
+                <div class="stem"></div>
+                <div class="leaf"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ΚΟΠΕΛΑ -->
+
+    <div class="girl">
+
+        <div class="girl-hair"></div>
+
+        <div class="girl-head">
+            <div class="girl-eyes"></div>
+        </div>
+
+        <div class="girl-fringe"></div>
+
+        <div class="girl-neck"></div>
+
+        <div class="girl-body"></div>
+
+        <div class="girl-arm girl-arm-left"></div>
+
+        <div class="girl-arm girl-arm-right"></div>
+
+        <div class="girl-leg girl-leg-left"></div>
+
+        <div class="girl-leg girl-leg-right"></div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
